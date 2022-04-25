@@ -8,39 +8,32 @@ import android.os.Handler;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
-    Handler mHandler;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        CountDownTimer countDownTimer=new CountDownTimer(10000,1000) {
-//            @Override
-//            public void onTick(long l) {
-//                if(l>1000)
-//                {
-//                    Log.d("BBB", l + "");
-//                }
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//
-//            }
-//
-//
-//        };
-//        countDownTimer.start();
-        mHandler=new Handler();
-    }
-
-    public void setDelay(long tinme)
-    {
-        mHandler.postDelayed(new Runnable() {
+        CountDownTimer countDownTimer=new CountDownTimer(10000,1000) {
             @Override
-            public void run() {
+            public void onTick(long l) {
+                if(l>1000)
+                {
+                    Log.d("BBB", l + "");
+                }
+            }
+
+            @Override
+            public void onFinish() {
 
             }
-        },1000);
+
+
+        };
+        countDownTimer.start();
+
+
     }
+
 }
