@@ -6,32 +6,22 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    ProgressBar mProgressBar;
+    TextView mTvPoint;
+    ImageView mImgRandom, mImgPick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CountDownTimer countDownTimer=new CountDownTimer(10000,1000) {
-            @Override
-            public void onTick(long l) {
-                if(l>1000)
-                {
-                    Log.d("BBB", l + "");
-                }
-            }
 
-            @Override
-            public void onFinish() {
-
-            }
-
-
-        };
-        countDownTimer.start();
 
 
     }
