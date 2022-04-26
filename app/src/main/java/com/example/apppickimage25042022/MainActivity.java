@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mProgressBar=findViewById(R.id.progressBarTime);
+        mTvPoint=findViewById(R.id.textViewPoint);
+        mImgRandom=findViewById(R.id.imgRandom);
+        mImgPick=findViewById(R.id.imgPick);
 
 
 
