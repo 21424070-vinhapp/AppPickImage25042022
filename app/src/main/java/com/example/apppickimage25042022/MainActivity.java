@@ -22,25 +22,37 @@ public class MainActivity extends AppCompatActivity {
     int mResourceIdRandom;
     Random mRandom;
     MyCountDownTimer mMyCountDown;
+    int mTotalTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         init();
-        randomImage();
-        mMyCountDown.getInstance().countDown(5000, 1000, new MyCountDownTimer.OnListenerMyCountDown() {
+        event();
+
+    }
+
+    private void event() {
+        //Listener
+
+
+        mMyCountDown.getInstance().countDown(mTotalTime, 1000, new MyCountDownTimer.OnListenerMyCountDown() {
             @Override
             public void onTick(long currentTime) {
                 //Toast.makeText(MainActivity.this, currentTime+ "", Toast.LENGTH_SHORT).show();
-                Log.d("BBB", currentTime+"");
+                //Log.d("BBB", currentTime+"");
+                mProgressBar.setProgress((int) currentTime/1000);
             }
 
             @Override
             public void onFinish() {
-                Log.d("BBB", "onFinish");
+                //Log.d("BBB", "onFinish");
+                mProgressBar.setProgress(0);
             }
         });
+        //handle
+        randomImage();
     }
 
     private void init()
@@ -52,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
         //random bat ky
         mRandom=new Random();
+
+        mTotalTime=5000;
+
+        //set MAX progress
+        mProgressBar.setMax(mTotalTime/1000);
+        mProgressBar.setProgress(mTotalTime/1000);
     }
 
     private void randomImage()
