@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar mProgressBar;
     TextView mTvPoint;
     ImageView mImgRandom, mImgPick;
-
+    String[] mArrNameImage;
+    int mResourceIdRandom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
         mImgPick=findViewById(R.id.imgPick);
 
 
-
+        //random bat ky
+        mArrNameImage=getResources().getStringArray(R.array.arr_image);
+        mResourceIdRandom=getResources().getIdentifier(mArrNameImage[6],"drawable",getPackageName());
+        mImgRandom.setImageResource(mResourceIdRandom);
     }
 
 }
