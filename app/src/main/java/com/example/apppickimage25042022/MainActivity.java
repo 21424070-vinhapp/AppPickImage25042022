@@ -1,11 +1,18 @@
 package com.example.apppickimage25042022;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -51,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
         });
         //handle
         randomImage();
+
+        mImgPick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+                activityResultLauncher.launch(intent);
+            }
+        });
     }
 
     private void init()
@@ -77,5 +93,14 @@ public class MainActivity extends AppCompatActivity {
         mResourceIdRandom=getResources().getIdentifier(mArrNameImage[index],"drawable",getPackageName());
         mImgRandom.setImageResource(mResourceIdRandom);
     }
+
+    //get date from activity
+    private ActivityResultLauncher<Intent> activityResultLauncher=registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+
+                }
+            });
 
 }
