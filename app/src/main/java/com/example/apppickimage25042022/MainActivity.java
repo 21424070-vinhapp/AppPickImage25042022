@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void event() {
         //Listener
-
-
         mMyCountDown.getInstance().countDown(mTotalTime, 1000, new MyCountDownTimer.OnListenerMyCountDown() {
             @Override
             public void onTick(long currentTime) {
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     private void randomImage()
     {
         mArrNameImage=getResources().getStringArray(R.array.arr_image);
-
         int index=mRandom.nextInt(mArrNameImage.length);
         mResourceIdRandom=getResources().getIdentifier(mArrNameImage[index],"drawable",getPackageName());
         mImgRandom.setImageResource(mResourceIdRandom);
